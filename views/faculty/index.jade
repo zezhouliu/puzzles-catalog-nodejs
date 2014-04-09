@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    h1 Create new faculty member
+    form(role="form" method="POST" action="/faculty")
+        .form-group
+            label First
+            input.form-control(type="text", name="first", required)
+        .form-group
+            label Middle
+            input.form-control(type="text", name="middle", required)
+        .form-group
+            label Last
+            input.form-control(type="text", name="last", required)
+        .form-group
+            label Suffix
+            input.form-control(type="text", name="suffix", required)
+        .form-group
+            label Id
+            input.form-control(type="text", name="faculty_id", required)
+
+        button.btn.btn-primary(type="submit") Create new faculty member
+    h1 Existing faculty members
+    table.table
+        thead
+            tr
+                th Name
+                th Id
+                th Actions
+        tbody
+            each member in faculty
+                tr
+                    td= member.get('first') + ' ' + member.get('middle') + ' ' + member.get('last') + ' ' +  member.get('suffix')
+                    td= member.get('faculty_id')
+                    td
+                        a.btn.btn-primary(href="/faculty/"+member.get('id')) Show
+                        a.btn.btn-info(href="/faculty/" + member.get('id') + "/edit") Edit
+                        form(style="display:inline", method="POST", action="/faculty/" + member.get('id'))
+                            input(type="hidden" name="_method" value="delete")
+                            button.btn.btn-danger(type="submit") Delete

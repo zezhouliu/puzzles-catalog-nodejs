@@ -4,6 +4,7 @@
 var express = require('express'),
     routes = require('./routes'),
     field = require('./routes/field'),
+    faculty = require('./routes/faculty'),
     http = require('http'),
     path = require('path');
 
@@ -28,6 +29,14 @@ if ('development' == app.get('env')) {
 
 // Routes
 app.get('/', routes.index);
+
+app.get('/faculty', faculty.list);
+app.post('/faculty', faculty.create);
+app.get('/faculty/:id', faculty.show);
+app.put('/faculty/:id', faculty.update);
+app.get('/faculty/:id/edit', faculty.edit);
+app.del('/faculty/:id', faculty.destroy);
+
 app.get('/fields', field.list);
 app.post('/fields', field.create);
 app.get('/fields/:id', field.show);

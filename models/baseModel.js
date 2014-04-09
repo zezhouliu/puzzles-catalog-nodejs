@@ -8,7 +8,7 @@ baseModel = Bookshelf.initialize({
         host: '127.0.0.1',
         user: 'jharvard',
         password: 'crimson',
-        database: 'catalog',
+        database: 'courses',
         charset: 'utf8'
     }
 });

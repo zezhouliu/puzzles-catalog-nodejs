@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+    h1= faculty.get('first') + ' ' + faculty.get('middle') + ' ' + faculty.get('last') + ' ' +  faculty.get('suffix')
+    dl
+        dt Id
+        dd= faculty.get('faculty_id')

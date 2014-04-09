@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    h1 Edit Faculty Member
+        form(role="form" method="POST" action="/faculty/" + faculty.get('id'))
+            input(type="hidden" name="_method" value="PUT")
+            .form-group
+                label First
+                input.form-control(type="text", name="first", required, value=faculty.get('first'))
+            .form-group
+                label Middle
+                input.form-control(type="text", name="middle", required, value=faculty.get('middle'))
+            .form-group
+                label Last
+                input.form-control(type="text", name="last", required, value=faculty.get('last'))
+            .form-group
+                label Suffix
+                input.form-control(type="text", name="suffix", required, value=faculty.get('suffix'))
+            .form-group
+                label Id
+                input.form-control(type="text", name="faculty_id", required, value=faculty.get('faculty_id'))
+
+            button.btn.btn-primary(type="submit") Update faculty member
