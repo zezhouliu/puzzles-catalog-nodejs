@@ -62,7 +62,14 @@ exports.update = function (req, res) {
     });
 };
 
-// DELTETE /course/:id
+// GET /course/:id/edit
+exports.edit = function(req, res) {
+    new model.Course({id: req.params.id}).fetch().then(function (course) {
+        res.render('course/edit', {course: course});
+    });
+};
+
+// DELETE /course/:id
 exports.destroy = function(req, res) {
   new model.Course({id: req.params.id}).destroy().then(function() {
       res.redirect('/courses');
