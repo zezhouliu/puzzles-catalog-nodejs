@@ -5,6 +5,7 @@ var express = require('express'),
     routes = require('./routes'),
     field = require('./routes/field'),
     faculty = require('./routes/faculty'),
+    course = require('./routes/course'),
     http = require('http'),
     path = require('path');
 
@@ -43,6 +44,13 @@ app.get('/fields/:id', field.show);
 app.put('/fields/:id', field.update);
 app.get('/fields/:id/edit', field.edit);
 app.del('/fields/:id', field.destroy);
+
+app.get('/courses', course.list);
+app.post('/courses', course.create);
+app.get('/courses/:id', course.show);
+app.put('/courses/:id', course.update);
+app.get('/courses/:id/edit', course.edit);
+app.del('/courses/:id', course.destroy);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
