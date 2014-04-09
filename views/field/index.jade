@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    h1 Create new field
+    form(role="form" method="POST" action="/fields")
+        .form-group
+            label Name
+            input.form-control(type="text", name="name", required)
+        .form-group
+            label Code
+            input.form-control(type="text", name="code", required)
+
+        button.btn.btn-primary(type="submit") Create new field
+    h1 Existing fields
+    table.table
+        thead
+            tr
+                th Name
+                th Code
+                th Actions
+        tbody
+            each field in fields
+                tr
+                    td= field.get('name')
+                    td= field.get('code')
+                    td
+                        a.btn.btn-primary(href="/fields/"+field.get('id')) Show
+                        a.btn.btn-info(href="/fields/" + field.get('id') + "/edit") Edit
+                        form(style="display:inline", method="POST", action="/fields/" + field.get('id'))
+                            input(type="hidden" name="_method" value="delete")
+                            button.btn.btn-danger(type="submit") Delete

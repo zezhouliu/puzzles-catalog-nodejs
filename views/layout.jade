@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= "Harvard Courses"
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/justified-nav.css')
+    meta(name='viewport', content='width=device-width')
+  body
+    .container
+      .masthead
+        h3.text-muted Harvard Courses
+        ul.nav.nav-justified
+          li
+            a(href="/") Home
+          li
+            a(href="/courses") Courses
+          li
+            a(href="/faculty") Faculty
+          li
+            a(href="/fields") Fields
+        // Todo: alerts and messages here
+
+      block content
+
+      .footer
+       p John Harvard

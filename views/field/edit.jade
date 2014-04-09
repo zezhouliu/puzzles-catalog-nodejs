@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1 Edit field
+        form(role="form" method="POST" action="/fields/" + field.get('id'))
+            input(type="hidden" name="_method" value="PUT")
+            .form-group
+                label Name
+                input.form-control(type="text", name="name", required, value=field.get('name'))
+            .form-group
+                label Code
+                input.form-control(type="text", name="code", required, value=field.get('code'))
+
+            button.btn.btn-primary(type="submit") Update field

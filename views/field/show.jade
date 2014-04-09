@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+    h1= field.get('name')
+    dl
+        dt Id
+        dd= field.get('id')
+        dt Name
+        dd= field.get('name')
+        dt Code
+        dd= field.get('code')
