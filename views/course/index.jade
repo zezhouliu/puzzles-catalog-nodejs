@@ -1,0 +1,85 @@
+extends ../layout
+
+block content
+    h1 Create new course
+    form(role="form" method="POST" action="/courses")
+        .form-group
+            label Title
+            input.form-control(type="text", name="title", required)
+        .form-group
+            label Category Num
+            input.form-control(type="text", name="cat_num", required)
+        .form-group
+            label Term
+            input.form-control(type="text", name="term", required)
+        .form-group
+            label Bracketed
+            input.form-control(type="text", name="bracketed", required)
+        .form-group
+            label Field
+            input.form-control(type="text", name="field", required)
+        .form-group
+            label Number
+            input.form-control(type="text", name="number", required)
+        .form-group
+            label Faculty
+            input.form-control(type="text", name="faculty", required)
+        .form-group
+            label Description
+            input.form-control(type="text", name="description", required)
+        .form-group
+            label Prerequisites
+            input.form-control(type="text", name="prerequisites", required)
+        .form-group
+            label Meetings
+            input.form-control(type="text", name="meetings", required)
+        .form-group
+            label Building
+            input.form-control(type="text", name="building", required)
+        .form-group
+            label Room
+            input.form-control(type="text", name="room", required)
+        .form-group
+            label Notes
+            input.form-control(type="text", name="note", required)
+
+        button.btn.btn-primary(type="submit") Create new course
+    h1 Existing courses
+    table.table
+        thead
+            tr
+                th Title
+                th Category Number
+                th Term
+                th Bracketed
+                th Field
+                th Number
+                th Faculty
+                th Description
+                th Prerequisites
+                th Meetings
+                th Building
+                th Room
+                th Notes
+        tbody
+            each course in courses
+                tr
+                    td= course.get('title')
+                    td= course.get('cat_num')
+                    td= course.get('term')
+                    td= course.get('bracketed')
+                    td= course.get('field')
+                    td= course.get('number')
+                    td= course.get('faculty')
+                    td= course.get('description')
+                    td= course.get('prerequisites')
+                    td= course.get('meetings')
+                    td= course.get('building')
+                    td= course.get('room')
+                    td= course.get('notes')
+                    td
+                        a.btn.btn-primary(href="/courses/"+course.get('id')) Show
+                        a.btn.btn-info(href="/courses/" + course.get('id') + "/edit") Edit
+                        form(style="display:inline", method="POST", action="/courses/" + course.get('id'))
+                            input(type="hidden" name="_method" value="delete")
+                            button.btn.btn-danger(type="submit") Delete

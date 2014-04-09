@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+    h1 Edit course
+        form(role="form" method="POST" action="/courses/" + course.get('id'))
+            input(type="hidden" name="_method" value="PUT")
+            .form-group
+                label Cat
+                input.form-control(type="text", name="cat_num", required, value=course.get('cat_num'))
+            .form-group
+                label Term
+                input.form-control(type="text", name="term", required, value=course.get('term'))
+            .form-group
+                label Bracketed
+                input.form-control(type="text", name="bracketed", required, value=course.get('bracketed'))
+            .form-group
+                label Field
+                input.form-control(type="text", name="field", required, value=course.get('field'))
+            .form-group
+                label Number
+                input.form-control(type="text", name="number", required, value=course.get('number'))
+            .form-group
+                label Title
+                input.form-control(type="text", name="title", required, value=course.get('title'))
+            .form-group
+                label Faculty
+                input.form-control(type="text", name="faculty", required, value=course.get('faculty'))
+            .form-group
+                label Description
+                input.form-control(type="text", name="description", required, value=course.get('description'))
+            .form-group
+                label Prerequisited
+                input.form-control(type="text", name="prerequisites", required, value=course.get('prerequisites'))
+            .form-group
+                label Meetings
+                input.form-control(type="text", name="meetings", required, value=course.get('meetings'))
+            .form-group
+                label Building
+                input.form-control(type="text", name="building", required, value=course.get('building'))
+            .form-group
+                label Room
+                input.form-control(type="text", name="room", required, value=course.get('room'))
+            .form-group
+                label Notes
+                input.form-control(type="text", name="notes", required, value=course.get('notes'))
+
+            button.btn.btn-primary(type="submit") Update course

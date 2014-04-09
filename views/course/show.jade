@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+    h1= course.get('title')
+    dl
+        dt Id
+        dd= course.get('id')
+        dt Title
+        dd= course.get('title')
+        dt Cat_Num
+        dd= course.get('cat_num')
+        dt Term
+        dd= course.get('term')
+        dt Bracketed
+        dd= course.get('bracketed')
+        dt Field
+        dd= course.get('field')
+        dt Number
+        dd= course.get('number')
+        dt Faculty
+        dd= course.get('faculty')
+        dt Description
+        dd= course.get('description')
+        dt Prerequisites
+        dd= course.get('prerequisites')
+        dt Meetings
+        dd= course.get('meetings')
+        dt Building
+        dd= course.get('building')
+        dt Room
+        dd= course.get('room')
+        dt Notes
+        dd= course.get('notes')
+
